@@ -383,6 +383,8 @@ function configure_ceph {
     osd journal size = 100
     osd pool default size = ${CEPH_REPLICAS}
     rbd default features = ${CEPH_RBD_DEFAULT_FEATURES}
+    [mon]
+    mon data = ${CEPH_DATA_DIR}/mon/ceph-$(hostname)
 EOF
 
     # bootstrap the ceph monitor
