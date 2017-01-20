@@ -387,7 +387,8 @@ EOF
 
     # bootstrap the ceph monitor
     sudo ceph-mon -c ${CEPH_CONF_FILE} --mkfs -i $(hostname) \
-         --keyring ${CEPH_DATA_DIR}/tmp/keyring.mon.$(hostname)
+         --keyring ${CEPH_DATA_DIR}/tmp/keyring.mon.$(hostname) \
+         --mon-data ${CEPH_DATA_DIR}/mon/ceph-$(hostname)
 
     if [[ $RUN_AS == 'ceph' ]] ; then
         sudo chown -R ceph. ${CEPH_DATA_DIR}
